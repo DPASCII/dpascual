@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import StyledComponentsRegistry from '../lib/registry';
+import { ThemeRegistry } from '@/theme';
+import Header from '@/components/Header';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,7 +30,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <ThemeRegistry>
+            <Header
+              height={90}
+              pages={[
+                { item: 'Home', link: '/' },
+                { item: 'Work', link: '/work' },
+                { item: 'About', link: '/about' },
+                { item: 'Contact', link: '/contact' },
+              ]}
+            />
+            {children}
+          </ThemeRegistry>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
