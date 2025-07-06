@@ -6,46 +6,42 @@ import Hamburger from './components/hamburger';
 import DesktopMenu from './components/desktop-menu';
 import MobileMenu from './components/mobile-menu';
 
-const getThemeColors =
-  (prop: string) =>
-  ({ theme }: any) =>
-    theme.colors[prop];
-
 const getThemeWidth =
   (prop: string) =>
   ({ theme }: any) =>
     theme[prop];
 
-const NavBarContainer = styled.div<{
-  $height: number;
-}>`
-  z-index: 50;
-  position: sticky;
-  top: 0;
-  background-color: rgb(${getThemeColors('primary')});
-  height: ${({ $height }) => $height}px;
-  display: grid;
-`;
+// const NavBarContainer = styled.div<{
+//   $height: number;
+// }>`
+//   z-index: 50;
+//   position: sticky;
+//   top: 0;
+//   background-image: transparent;
+//   height: ${({ $height }) => $height}px;
+//   display: grid;
+// `;
 
 const NavBarWrapper = styled.div`
-  justify-self: center;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: space-between;
-  height: 100%;
   width: 100%;
   max-width: ${getThemeWidth('windowWidth')}px;
 `;
 
 const StyledImage = styled.img<{ $height: number }>`
   height: calc(${({ $height }) => $height}px - 16px);
-
   place-self: center;
   object-fit: contain;
 `;
 
 const MenuWrapper = styled.div<{ $number: number }>`
   display: none;
+  place-self: right;
   @media (min-width: ${getThemeWidth('windowWidth')}px) {
     display: grid;
     grid-template-columns: repeat(${({ $number }) => $number}, 1fr);
@@ -54,7 +50,7 @@ const MenuWrapper = styled.div<{ $number: number }>`
 
 const Trigger = styled.div`
   display: grid;
-  margin-left: auto;
+  margin: 8px;
   height: 100%;
   width: fit-content;
   align-content: center;
@@ -118,30 +114,30 @@ const Header: React.FC<NavBarProps> = (props) => {
   }, [desktopBreakpoint]);
 
   return (
-    <NavBarContainer $height={height} {...rest}>
-      <NavBarWrapper>
-        {logo && (
-          <a href="/" style={{ cursor: 'pointer', placeSelf: 'center' }}>
-            <StyledImage $height={height} src={logo} alt={alt} />
-          </a>
-        )}
-        <Trigger ref={hamburgerRef} onClick={toggleHamburger}>
-          <Hamburger isOpen={hamburgerOpen} />
-        </Trigger>
-        <MenuWrapper $number={pages.length}>
-          {pages.map((item, index) => (
-            <DesktopMenu page={item} key={index} menuWidth={menuWidth} />
-          ))}
-        </MenuWrapper>
-        <MobileMenu
-          height={height}
-          onClose={() => setHamburgerOpen(false)}
-          isOpen={hamburgerOpen}
-          pages={pages}
-          hamburgerRef={hamburgerRef}
-        />
-      </NavBarWrapper>
-    </NavBarContainer>
+    // <NavBarContainer $height={height} {...rest}>
+    <NavBarWrapper>
+      {logo && (
+        <a href='/' style={{ cursor: 'pointer', placeSelf: 'center' }}>
+          <StyledImage $height={height} src={logo} alt={alt} />
+        </a>
+      )}
+      <Trigger ref={hamburgerRef} onClick={toggleHamburger}>
+        <Hamburger isOpen={hamburgerOpen} />
+      </Trigger>
+      <MenuWrapper $number={pages.length}>
+        {pages.map((item, index) => (
+          <DesktopMenu page={item} key={index} menuWidth={menuWidth} />
+        ))}
+      </MenuWrapper>
+      <MobileMenu
+        height={height}
+        onClose={() => setHamburgerOpen(false)}
+        isOpen={hamburgerOpen}
+        pages={pages}
+        hamburgerRef={hamburgerRef}
+      />
+    </NavBarWrapper>
+    // </NavBarContainer>
   );
 };
 

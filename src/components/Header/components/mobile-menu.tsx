@@ -11,12 +11,11 @@ const getThemeColors =
 const MobileMenuWrapper = styled.div<{ $height: number; $toggle: boolean }>`
   visibility: ${({ $toggle }) => ($toggle ? 'visible' : 'hidden')};
   position: fixed;
-  top: ${(props) => props.$height}px;
   right: 0;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: rgb(${getThemeColors('secondary')});
+  background-color: rgb(0, 0, 0, 0.5);
   width: 100%;
   max-width: 300px;
   overflow-y: auto;
@@ -102,22 +101,24 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 
   return (
     <MobileMenuWrapper ref={menuRef} $toggle={isOpen} $height={height}>
-      {pages.map(({ iconComponent, item, link, subPages }) => (
-        <div key={link} style={{ display: 'grid' }}>
-          <MenuItem key={item} href={link}>
-            {iconComponent}
-            {item}
-          </MenuItem>
-          {subPages &&
-            subPages.map((subPage) => (
-              <SubMenuWrapper key={subPage.subItem}>
-                <SubMenuItem href={subPage.subLink}>
-                  {subPage.subItem}
-                </SubMenuItem>
-              </SubMenuWrapper>
-            ))}
-        </div>
-      ))}
+      <div style={{ marginTop: height }}>
+        {pages.map(({ iconComponent, item, link, subPages }) => (
+          <div key={link} style={{ display: 'grid' }}>
+            <MenuItem key={item} href={link}>
+              {iconComponent}
+              {item}
+            </MenuItem>
+            {subPages &&
+              subPages.map((subPage) => (
+                <SubMenuWrapper key={subPage.subItem}>
+                  <SubMenuItem href={subPage.subLink}>
+                    {subPage.subItem}
+                  </SubMenuItem>
+                </SubMenuWrapper>
+              ))}
+          </div>
+        ))}
+      </div>
     </MobileMenuWrapper>
   );
 };

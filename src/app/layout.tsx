@@ -33,12 +33,12 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <ThemeRegistry>
             <Header
-              height={90}
+              height={60}
               pages={[
                 { item: 'Home', link: '/' },
                 { item: 'Work', link: '/work' },
                 { item: 'About', link: '/about' },
-                { item: 'Contact', link: '/contact' },
+                { item: 'Contact', link: 'mailto:davidcpascual@gmail.com' },
               ]}
             />
             {children}

@@ -7,24 +7,37 @@ const getThemeColors =
     theme.colors[prop];
 
 const MenuWrapper = styled.div`
-  background-color: rgb(${getThemeColors('primary')});
-  height: 80%;
+  /* background-color: rgb(${getThemeColors('primary')}); */
+  text-align: center;
   align-self: end;
   position: relative;
   display: flex;
 `;
 
 const MenuItem = styled.a<{ $menuWidth: number }>`
-  cursor: pointer;
-  width: ${({ $menuWidth }) => $menuWidth}px;
-  color: rgb(${getThemeColors('text')});
-  text-align: center;
-  align-content: center;
-  justify-content: center;
-  padding: 8px;
-  transition: linear 0.3s;
-  &:hover {
-    background-color: rgb(${getThemeColors('hoverBackground')});
+  display: inline-block;
+  width: fit-content;
+  position: relative;
+  padding: 16px;
+  padding-bottom: 2px;
+  color: rgb(${({ theme }) => theme.colors.secondaryText});
+  text-align: inherit;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(${({ theme }) => theme.colors.secondaryText});
+    transform-origin: left;
+    transition: transform 0.25s ease-in-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
   }
 `;
 const SubMenuItem = styled.a`

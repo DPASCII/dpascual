@@ -12,7 +12,7 @@ const Bun = styled.div`
   display: flex;
   flex-flow: column nowrap;
   border-radius: 6px;
-  z-index: 10;
+  z-index: 15;
 
   cursor: pointer;
 `;
@@ -24,7 +24,7 @@ const Burger = styled.div<{
   width: 2.5rem;
   height: 0.4em;
   border-radius: 10px;
-  background: rgb(${getThemeColors('secondary')});
+  background: rgba(255, 255, 255, 0.5);
   transform-origin: 1px;
   transition: all 0.3s linear;
   margin: auto;
