@@ -18,7 +18,7 @@ const HeroSectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 80vh;
+  height: 100vh;
 
   justify-content: center;
   place-self: center;
