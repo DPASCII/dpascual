@@ -12,12 +12,14 @@ const slideUp = keyframes`
 `;
 
 const HeroSectionWrapper = styled.div`
+  background-image: url('/SiteBG.png');
+  background-size: cover;
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 80vh;
-  max-width: ${getThemeWidth('windowWidth')}px;
+
   justify-content: center;
   place-self: center;
   text-align: left;

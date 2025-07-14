@@ -11,39 +11,35 @@ const CardWrapper = styled.div<{
   $height: number;
 }>`
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 75% 25%;
   width: ${({ $width }) => $width}px;
   height: ${({ $height }) => $height}px;
   overflow: hidden;
-
-  @media (max-width: max(${({ theme }) => theme.breakpoints.mobile}px, ${({
+  border-radius: 1rem;
+  @media (max-width: max(${({ theme }) => theme.breakpoints.desktop}px, ${({
       $width,
     }) => $width}px)) {
-    width: 100%;
     height: auto;
   }
 `;
 
 const ImgWrapper = styled.div`
-  width: 100%;
-  aspect-ratio: 4 / 3;
+  width: inherit;
   overflow: hidden;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
-    aspect-ratio: 4/3;
-    height: auto;
-  }
 `;
 
 const StyledImg = styled.img`
   width: 100%;
   height: 100%;
+  object-position: top;
   object-fit: cover;
+  opacity: 80%;
   transition: all linear 0.5s;
-
+  transform-origin: top left;
+  transform: scale(110%);
   &:hover {
     opacity: 70%;
-    transform: scale(98%);
+    transform: scale(100%);
   }
 `;
 
@@ -51,9 +47,9 @@ const TextWrapper = styled.div<{
   $width: number;
   $height: number;
 }>`
-  padding: 8px 0;
+  padding: 8px;
   color: rgb(${getThemeColors('text')});
-
+  background-color: rgba(${getThemeColors('secondary')}, 0.7);
   h1 {
     font-size: ${({ $width, $height }) => 0.07 * Math.min($width, $height)}px;
     line-height: 1.2;
