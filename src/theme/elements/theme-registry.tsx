@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import defaultTheme from './theme'
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import defaultTheme from './theme';
 
 const GlobalCSS = createGlobalStyle`
   *, *::before, *::after {
@@ -17,22 +17,22 @@ h1, h2, h3, h4, h5, h6, p, li, ul {
     padding: 0;
     margin: 0;
     font-size: 1rem;
-    line-height:1;
+
 }
   a {
     text-decoration: none;
     color: inherit;
-  }`
+  }`;
 
 export default function ThemeRegistry({
-    children,
+  children,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode;
 }) {
-    return (
-        <ThemeProvider theme={defaultTheme}>
-            <GlobalCSS />
-            {children}
-        </ThemeProvider>
-    )
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalCSS />
+      {children}
+    </ThemeProvider>
+  );
 }

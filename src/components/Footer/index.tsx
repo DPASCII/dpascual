@@ -57,28 +57,22 @@ export const FooterLayout = ({
 };
 
 export const Footer = ({
-  socialsComponent = (
-    <SocialsComponent
-      socialsurl={['www.facebook.com', 'www.x.com', 'www.instagram.com']}
-    />
-  ),
+  socialsComponent,
   children,
   contents,
   smallLogo,
   companyName = 'made by David Pascual',
   mailTo,
 }: {
-  logo: string;
-  socialsurl: string[];
   socialsComponent?: React.ReactNode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   contents: {
     title: string;
-    subtitle: string;
-    itemlist: { item: string; subitem: string }[];
+    subtitle?: string;
+    itemlist: { item: string; subitem: string; link: string }[];
   }[];
-  smallLogo: string;
-  companyName: string;
+  smallLogo?: string;
+  companyName?: string;
   mailTo?: string;
 }) => {
   return (

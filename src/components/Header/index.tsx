@@ -24,13 +24,18 @@ const getThemeWidth =
 
 const NavBarWrapper = styled.div`
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  width: 100%;
-  max-width: ${getThemeWidth('windowWidth')}px;
+  z-index: 50;
+  width: 100vw;
+  display: grid;
+  @media (min-width: ${getThemeWidth('windowWidth')}px) {
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: ${getThemeWidth('windowWidth')}px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+  }
 `;
 
 const StyledImage = styled.img<{ $height: number }>`
@@ -41,7 +46,6 @@ const StyledImage = styled.img<{ $height: number }>`
 
 const MenuWrapper = styled.div<{ $number: number }>`
   display: none;
-  place-self: right;
   @media (min-width: ${getThemeWidth('windowWidth')}px) {
     display: grid;
     grid-template-columns: repeat(${({ $number }) => $number}, 1fr);
@@ -50,12 +54,10 @@ const MenuWrapper = styled.div<{ $number: number }>`
 
 const Trigger = styled.div`
   display: grid;
-  margin: 8px;
   height: 100%;
-  width: fit-content;
+  place-self: end;
   align-content: center;
-  align-self: right;
-  padding: 0 1rem;
+  padding: 1rem;
   @media (min-width: ${getThemeWidth('windowWidth')}px) {
     display: none;
   }

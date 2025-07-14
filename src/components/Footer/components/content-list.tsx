@@ -6,7 +6,10 @@ const Wrapper = styled.div`
   display: grid;
   justify-content: center;
   width: fit-content;
-  gap: 0.5rem;
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 `;
 
 const ListWrapper = styled.ul`
@@ -15,7 +18,6 @@ const ListWrapper = styled.ul`
 `;
 
 const Item = styled.li`
-  margin-top: 1.5rem;
   font-weight: 600;
   list-style-type: none;
 `;

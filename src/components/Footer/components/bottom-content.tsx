@@ -13,9 +13,11 @@ const BottomContentWrapper = styled.div`
   grid-template-rows: auto;
   align-items: center;
   text-align: center;
+
   @media (min-width: ${getThemeBreakpoints('desktop')}px) {
-    grid-template-columns: 1fr 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
     row-gap: 0;
+    grid-gap: 5rem;
   }
 `;
 
@@ -23,6 +25,11 @@ const StyledImg = styled.img`
   justify-self: center;
   height: 2rem;
   margin: 0.5rem;
+`;
+
+const LeftContent = styled.div`
+  display: grid;
+  place-content: center;
 `;
 
 const LegalWrapper = styled.div`
@@ -38,7 +45,7 @@ const LegalWrapper = styled.div`
 
 const YearText = styled.div`
   @media (min-width: ${getThemeBreakpoints('desktop')}px) {
-    grid-column: 3;
+    grid-column: 2;
     justify-self: left;
   }
 `;
@@ -60,14 +67,16 @@ const BottomContent = ({
   ];
   return (
     <BottomContentWrapper>
-      <LegalWrapper>
-        {links.map((linkObj, index) => (
-          <StyledLink key={index} href={linkObj.link}>
-            {linkObj.title}
-          </StyledLink>
-        ))}
-      </LegalWrapper>
-      {smallLogo && <StyledImg src={smallLogo} alt="logo" />}
+      <LeftContent>
+        <LegalWrapper>
+          {links.map((linkObj, index) => (
+            <StyledLink key={index} href={linkObj.link}>
+              {linkObj.title}
+            </StyledLink>
+          ))}
+        </LegalWrapper>
+      </LeftContent>
+      {smallLogo && <StyledImg src={smallLogo} alt='logo' />}
       <YearText>
         {year}© {companyName}. All Rights Reserved.
       </YearText>
