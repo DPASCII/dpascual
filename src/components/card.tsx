@@ -12,14 +12,14 @@ const CardWrapper = styled.div<{
 }>`
   display: grid;
   grid-template-rows: 75% 25%;
-  width: ${({ $width }) => $width}px;
+  max-width: ${({ $width }) => $width}px;
   height: ${({ $height }) => $height}px;
   overflow: hidden;
   border-radius: 1rem;
   @media (max-width: max(${({ theme }) => theme.breakpoints.desktop}px, ${({
       $width,
     }) => $width}px)) {
-    height: auto;
+    height: 500px;
   }
 `;
 
