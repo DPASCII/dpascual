@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import StyledComponentsRegistry from '../lib/registry';
+import { ThemeRegistry } from '@/theme';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import SocialsComponent from '@/components/footer/components/socials-component';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,7 +32,49 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <div className='site'>
+          <StyledComponentsRegistry>
+            <ThemeRegistry>
+              <Header
+                height={60}
+                pages={[
+                  { item: 'Home', link: '/' },
+                  // { item: 'Work', link: '/work' },
+                  // { item: 'About', link: '/about' },
+                  { item: 'Contact', link: 'mailto:davidcpascual@gmail.com' },
+                ]}
+              />
+              {children}
+              <Footer
+                contents={[
+                  {
+                    title: 'You can reach me at',
+                    itemlist: [
+                      {
+                        item: 'Email',
+                        subitem: 'davidcpascual@gmail.com',
+                        link: 'mailto:davidcpascual@gmail.com',
+                      },
+                      {
+                        item: 'Viber/WhatsApp',
+                        subitem: '+63917 876 1608',
+                      },
+                    ],
+                  },
+                ]}
+                socialsComponent={
+                  <SocialsComponent
+                    socialsurl={[
+                      'https://github.com/DPASCII',
+                      'https://www.linkedin.com/in/davidpascual94/',
+                    ]}
+                  />
+                }
+                mailTo='davidcpascual@gmail.com'
+              />
+            </ThemeRegistry>
+          </StyledComponentsRegistry>
+        </div>
       </body>
     </html>
   );
