@@ -11,7 +11,7 @@ const CardWrapper = styled.div<{
   $height: number;
 }>`
   display: grid;
-  grid-template-rows: 75% 25%;
+  grid-template-rows: 80% 20%;
   width: ${({ $width }) => $width}px;
   height: ${({ $height }) => $height}px;
   overflow: hidden;

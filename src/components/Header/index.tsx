@@ -27,6 +27,9 @@ const NavBarWrapper = styled.div`
   z-index: 50;
   width: 100vw;
   display: grid;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 1rem 1rem;
+  padding: 0 1rem 1rem;
   @media (min-width: ${getThemeWidth('windowWidth')}px) {
     display: flex;
     left: 50%;

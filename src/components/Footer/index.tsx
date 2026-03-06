@@ -69,7 +69,7 @@ export const Footer = ({
   contents: {
     title: string;
     subtitle?: string;
-    itemlist: { item: string; subitem: string; link: string }[];
+    itemlist: { item: string; subitem: string; link?: string }[];
   }[];
   smallLogo?: string;
   companyName?: string;

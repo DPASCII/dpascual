@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: repeat(2, max-content);
+  height: max-content;
   justify-items: center;
   margin: 2rem;
   background-color: rgba(255, 255, 255, 0.65);

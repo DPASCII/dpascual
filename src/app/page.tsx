@@ -12,20 +12,23 @@ export default function Home() {
       alt: 'placeholder',
       text: 'PhillWell',
       subText: 'NextJs, TinaCMS, TailwindCSS, TypeScript, shadcn',
+      link: 'https://www.phillwell.com',
     },
     {
       imgSrc: '/assets/PADM.png',
       alt: 'placeholder',
       text: 'PADMConstruct',
       subText: 'NextJs, TailwindCSS, TypeScript',
+      link: 'https://www.padmconstruct.com',
     },
-    {
-      imgSrc:
-        'https://www.shutterstock.com/image-vector/no-photo-image-viewer-thumbnail-260nw-2495883211.jpg',
-      alt: 'placeholder',
-      text: 'YourProMedVA',
-      subText: 'NextJs, TailwindCSS, TypeScript',
-    },
+    // {
+    //   imgSrc:
+    //     'https://www.shutterstock.com/image-vector/no-photo-image-viewer-thumbnail-260nw-2495883211.jpg',
+    //   alt: 'placeholder',
+    //   text: 'YourProMedVA',
+    //   subText: 'NextJs, TailwindCSS, TypeScript',
+    //   link: '/projects/ypva',
+    // },
   ];
   const cardSize = { width: 500, height: 1000 };
 
@@ -36,7 +39,7 @@ export default function Home() {
         subtitle='Web Developer'
         tag='Designing with purpose. Building with code.'
       />
-      <CardContainer columns={3}>
+      <CardContainer columns={2}>
         {projectList.map((project, index) => (
           <Card key={index} {...cardSize} {...project} />
         ))}

@@ -4,6 +4,7 @@ import StyledLink from '../../styled-link';
 
 const Wrapper = styled.div`
   display: grid;
+  grid-gap: 1rem;
   justify-content: center;
   width: fit-content;
   h1 {

@@ -39,8 +39,8 @@ export default function RootLayout({
                 height={60}
                 pages={[
                   { item: 'Home', link: '/' },
-                  { item: 'Work', link: '/work' },
-                  { item: 'About', link: '/about' },
+                  // { item: 'Work', link: '/work' },
+                  // { item: 'About', link: '/about' },
                   { item: 'Contact', link: 'mailto:davidcpascual@gmail.com' },
                 ]}
               />
@@ -54,6 +54,10 @@ export default function RootLayout({
                         item: 'Email',
                         subitem: 'davidcpascual@gmail.com',
                         link: 'mailto:davidcpascual@gmail.com',
+                      },
+                      {
+                        item: 'Viber/WhatsApp',
+                        subitem: '+63917 876 1608',
                       },
                     ],
                   },
