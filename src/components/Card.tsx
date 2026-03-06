@@ -12,19 +12,21 @@ const CardWrapper = styled.div<{
 }>`
   display: grid;
   grid-template-rows: 80% 20%;
-  width: ${({ $width }) => $width}px;
+  width: 100%;
+  max-width: ${({ $width }) => $width}px;
   height: ${({ $height }) => $height}px;
   overflow: hidden;
   border-radius: 1rem;
-  @media (max-width: max(${({ theme }) => theme.breakpoints.desktop}px, ${({
-      $width,
-    }) => $width}px)) {
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    grid-template-rows: auto auto;
     height: auto;
   }
 `;
 
 const ImgWrapper = styled.div`
-  width: inherit;
+  width: 100%;
   overflow: hidden;
 `;
 
@@ -37,9 +39,14 @@ const StyledImg = styled.img`
   transition: all linear 0.5s;
   transform-origin: top left;
   transform: scale(110%);
+
   &:hover {
     opacity: 70%;
     transform: scale(100%);
+  }
+
+  @media (max-width: 768px) {
+    height: auto;
   }
 `;
 
@@ -50,14 +57,23 @@ const TextWrapper = styled.div<{
   padding: 8px;
   color: rgb(${getThemeColors('text')});
   background-color: rgba(${getThemeColors('secondary')}, 0.7);
+
   h1 {
     font-size: ${({ $width, $height }) => 0.07 * Math.min($width, $height)}px;
     line-height: 1.2;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
   }
 
   h2 {
     font-size: ${({ $width, $height }) => 0.035 * Math.min($width, $height)}px;
     color: gray;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
   }
 `;
 
