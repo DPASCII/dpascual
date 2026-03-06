@@ -1,6 +1,6 @@
 'use client';
 
-import Card from '@/components/card';
+import Card from '@/components/Card';
 import CardContainer from '@/components/card-container';
 import HeroSection from '@/components/hero-section';
 import { text } from 'stream/consumers';
