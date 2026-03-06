@@ -5,7 +5,7 @@ import StyledComponentsRegistry from '../lib/registry';
 import { ThemeRegistry } from '@/theme';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import SocialsComponent from '@/components/footer/components/socials-component';
+import SocialsComponent from '@/components/Footer/components/socials-component';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
