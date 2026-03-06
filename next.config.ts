@@ -5,9 +5,6 @@ const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true, // important!
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
 };
 
 export default nextConfig;
